@@ -1,18 +1,34 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import Footer from './components/Footer';
+import { HashRouter as Router , Routes, Route} from 'react-router-dom';
+import HomeScreen from './components/screens/HomeScreen'
+import LoginScreen from './components/screens/LoginScreen';
+import SignUpScreen from './components/screens/SignupScreen';
+import CartScreen from './components/screens/CartScreen';
 
 export default function App() {
   return (
     <>
-      <div>
-        <Navbar />
-        <Container>
-          <h1>Welcome to Django Rest Framework Series using react-redux</h1>
-        </Container>
-        <Footer />
-      </div>
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<HomeScreen />}></Route>
+        </Routes>
+
+        <Routes>
+          <Route exact path="/login" element={<LoginScreen />}></Route>
+        </Routes>
+
+        <Routes>
+          <Route exact path="/signup" element={<SignUpScreen />}></Route>
+        </Routes>
+
+        <Routes>
+          <Route exact path="/cart" element={<CartScreen />}></Route>
+        </Routes>
+      </Router>
     </>
   )
 }

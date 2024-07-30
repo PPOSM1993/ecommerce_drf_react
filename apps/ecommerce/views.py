@@ -3,7 +3,9 @@ from django.http import JsonResponse
 # Create your views here.
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .products import *
+from .models import *
+from .serializer import ProductSerializer
+#from .products import *
 
 @api_view(['GET'])
 def GetRoutes(request):
@@ -13,4 +15,12 @@ def GetRoutes(request):
 
 @api_view(['GET'])
 def GetProducts(request):
-    return Response(products)
+    products = Products.objects.all()
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def GetProduct(request, pk):
+    product = Products.objects.get(_id=pk)
+    serializer = ProductSerializer(product, many=False)
+    return Response(serializer.data)

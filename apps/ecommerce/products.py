@@ -1,7 +1,7 @@
 products = [
     {
         "_id": 1,
-        "productname": "Camera",
+        "product_name": "Camera",
         "category": "electronics",
         "price": 5000
     },
@@ -9,14 +9,14 @@ products = [
 
     {
         "_id": 2,
-        "productname": "Laptop",
+        "product_name": "Laptop",
         "category": "electronics",
         "price": 8000
     },
 
     {
         "_id": 3,
-        "productname": "Mobile",
+        "product_name": "Mobile",
         "category": "electronics",
         "price": 5000
     }

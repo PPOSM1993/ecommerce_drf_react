@@ -13,9 +13,11 @@ export default function App() {
     <>
       <Router>
         <Header />
+
         <Routes>
           <Route exact path="/" element={<HomeScreen />}></Route>
         </Routes>
+
 
         <Routes>
           <Route exact path="/login" element={<LoginScreen />}></Route>
@@ -28,6 +30,7 @@ export default function App() {
         <Routes>
           <Route exact path="/cart" element={<CartScreen />}></Route>
         </Routes>
+
       </Router>
     </>
   )

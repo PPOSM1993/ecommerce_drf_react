@@ -7,6 +7,8 @@ import HomeScreen from './components/screens/HomeScreen'
 import LoginScreen from './components/screens/LoginScreen';
 import SignUpScreen from './components/screens/SignupScreen';
 import CartScreen from './components/screens/CartScreen';
+import Product from './components/Product';
+import ProductScreen from './components/screens/ProductScreen';
 
 export default function App() {
   return (
@@ -16,6 +18,10 @@ export default function App() {
 
         <Routes>
           <Route exact path="/" element={<HomeScreen />}></Route>
+        </Routes>
+
+        <Routes>
+          <Route exact path="/product/:id" element={<ProductScreen />}></Route>
         </Routes>
 
 

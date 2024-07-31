@@ -7,3 +7,12 @@
             <h6>Category: {product.product_category}</h6>
             <p>Price {product.price}</p>
             <p className="me-auto d-sm-inline-block">{product.product_info}</p>
+
+
+
+                async function fetchProducts() {
+                const {data} = await axios.get('/api/products/');
+                setProducts(data)
+                }
+                
+                fetchProducts()

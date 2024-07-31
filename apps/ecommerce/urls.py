@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.GetRoutes, name="Routes"),
     path('products/', views.GetProducts, name="getProducts"),
-    path('products/<str:pk>/', views.GetProduct, name="getProduct")
+    path('product/<str:pk>/', views.GetProduct, name="getProduct")
     
 ]

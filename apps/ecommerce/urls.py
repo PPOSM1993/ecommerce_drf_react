@@ -13,5 +13,6 @@ urlpatterns = [
     path('users/login/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('users/profile/',views.GetUserProfiles, name="getUserProfiles"),
     path('users/', views.GetUsers, name="getUsers"),
-    
+    path('users/register/',views.RegisterUser,name="register"),
+    path('activate/<uidb64>/<token>',views.ActivateAccountView.as_view(),name='activate'),
 ]

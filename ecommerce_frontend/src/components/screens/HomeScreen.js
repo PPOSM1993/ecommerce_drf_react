@@ -22,8 +22,9 @@ function HomeScreen() {
   return (
     <Container>
       <br />
-      <h1>Products </h1>
-
+      <br />
+      <h1 className='text-products'>Products </h1>
+      <br />
       {
         loading ? (
           <Loader />

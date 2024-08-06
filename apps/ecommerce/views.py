@@ -87,17 +87,21 @@ def RegisterUser(request):
     
 
 class ActivateAccountView(View):
-    def get(self,request,uidb64,token):
+    def get(self, request, uidb64, token):
         try:
             uid=force_text(urlsafe_base64_decode(uidb64))
             user=User.objects.get(pk=uid)
         except Exception as identifier:
-            user=None
-        if user is not None and generate_token.check_token(user,token):
-            user.is_active=True
-            user.save()
-            message={"details": "Account is Activated"}
-            return Response(message, status=status.HTTP_200_OK)
+            user = None
+            if user is not None and generate_token.check_token(user,token):
+                user.is_active=True
+                user.save()
+                #message = {"details": "Account is Activated.."}
+                #return Response(message, status=status.HTTP_200_OK)
+                return render(request,"activatesuccess.html")
+            else:
+                return render(request,"activatefail.html")
+            
 
 
 @api_view(['GET'])

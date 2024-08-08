@@ -22,7 +22,7 @@ function LoginScreen() {
     const showPassword = () => {
         var x = document.getElementById("pass1");
 
-        if (x.type === "password" && z.type === "password") {
+        if (x.type === "password") {
             x.type = "text";
 
             changeshow(`fa fa-eye`)
@@ -96,7 +96,7 @@ function LoginScreen() {
                             <br />
                             <Row className='py-3'>
                                 <Col>
-                                    Already User? <Link to="/signin">Login</Link>
+                                    Yo dont have Account? <Link to="/signup">Signup</Link>
                                 </Col>
                             </Row>
                         </Card.Body>

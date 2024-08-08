@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Loader } from '../Loader';
 import Message from '../Message';
 import { validEmail, valid, validPassword } from './Regex';
+import { signup } from '../../actions/userActions';
 
 function SignUpScreen() {
     const navigate = useNavigate()
@@ -14,19 +15,34 @@ function SignUpScreen() {
     const [email, setEmail] = useState("");
     const [pass1, setPass1] = useState("");
     const [pass2, setPass2] = useState("");
-    const [error, setError] = useState("");
-    const[show, changeshow] = useState("fa fa-eye");
+    const [message, setMessage] = useState("");
+    const[show, changeshow] = useState("fa fa-eye-slash");
+    const dispatch = useDispatch();
+    const location = useLocation();
+
+    const redirect = location.search?location.search.split("=")[1]: "/"
+
+    const userSignup = useSelector((state) => state.userSignup);
+    const {error, loading, userInfo} = userSignup;
+
+    useEffect(() => {
+        if(userInfo) {
+            navigate("/")
+        }
+    }, [userInfo, redirect])
 
     const submitHandler = (e) => {
         e.preventDefault()
 
         if (pass1 !== pass2) {
-            setError("Password do not Match")
+            setMessage("Password do not Match")
             navigate("/signup")
         } else if (!validPassword.test(pass1)) {
-            setError("Invalid Password")
+            setMessage("Invalid Password")
         } else {
-            setError('Signup Success')
+            dispatch(signup(fname, lname, email, pass1))
+            setMessage("Signup is Success, Please Activate your Account")
+            navigate("/login")
         }
     }
 
@@ -57,7 +73,7 @@ function SignUpScreen() {
 
                         <Card.Body>
 
-                            {error && <Message variant='danger'>{error}</Message>}
+                            {message && <Message variant='danger'>{error}</Message>}
                             <Form onSubmit={submitHandler}>
                                 <Form.Group className='mb-3' controlId='fname'>
                                     <Form.Label>

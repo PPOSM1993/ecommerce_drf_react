@@ -16,3 +16,91 @@
                 }
                 
                 fetchProducts()
+
+
+
+                                            <Form onSubmit={submitHandler}>
+                                <Form.Group className="mb-3" controlId={"fname"}>
+                                    <Form.Label> 
+                                        <span>
+                                            <i className='fa fa-user'></i>
+                                        </span>{ " " }
+                                        First Name</Form.Label>
+                                    <br />
+                                    
+                                    <Form.Control 
+                                        type="text" 
+                                        placeholder="Enter Your First Name" 
+                                        value={fname} 
+                                        onChange={(e) => setFname(e.target.value)} 
+                                        required 
+                                    />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId={"lname"}>
+                                    <Form.Label> <span><i className='fa fa-user'></i></span> Last Name</Form.Label>
+                                    <br />
+                                    <Form.Control 
+                                        type="text" 
+                                        placeholder="Enter Your Last Name" 
+                                        value={lname}
+                                        onChange={(e) => setLname(e.target.value)} 
+                                        required 
+                                    />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="email">
+                                    <Form.Label> <span><i className='fa-solid fa-envelope'></i></span> Email</Form.Label>
+                                    <br />
+                                    <Form.Control 
+                                        type="email" 
+                                        placeholder="Enter Your Email" 
+                                        value={email}
+                                        required
+                                        onChange={(e) => setEmail(e.target.value)} 
+                                    />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="pass1">
+                                    <Form.Label> <span><i className=''></i></span> Password</Form.Label>
+                                    <br />
+                                    <InputGroup className='mb-3'>
+                                        <InputGroup.Checkbox />
+                                        {" "}
+
+                                        <Form.Control
+                                            placeholder="Enter Your Password"
+                                            required
+                                            type="password"
+                                            id="pass1"
+                                            value={pass1}
+                                            onChange={(e) => setPass1(e.target.value)} 
+                                        />
+                                    </InputGroup>
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="pass2">
+                                    <Form.Label> <span><i className=''></i></span> Password</Form.Label>
+                                    <br />
+                                    <InputGroup className='mb-3'>
+                                        <InputGroup.Checkbox />
+                                        {" "}
+
+                                        <Form.Control
+                                            placeholder="Confirm Password"
+                                            required
+                                            type="password"
+                                            id="pass2"
+                                            value={pass2}
+                                            onChange={(e) => setPass2(e.target.value)} 
+                                        />
+                                    </InputGroup>
+                                </Form.Group>
+
+                                <br/>
+                                <div className='d-grid gap-2'>
+                                    <Button className='btn btn-sm btn-success' type='submit'>
+                                        <i className="fa-solid fa-user-plus"></i>Sign Up</Button>
+                                </div>
+
+                            </Form>
